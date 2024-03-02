@@ -4,7 +4,7 @@ extends KinematicBody
 #	Variables for Camera Control
 export var mouse_sensitivity = 0.1
 export var orbit_acceleration = 10
-export var camrot_v_min = -55
+export var camrot_v_min = -30
 export var camrot_v_max = 75
 
 onready var camrot_h = 0

@@ -31,6 +31,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95363, 0 )
 [node name="PlayerCamera" type="ClippedCamera" parent="CameraRoot/PivotH/PivotV"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -3.508 )
 far = 500.0
+process_mode = 1
 
 [node name="AimingArea" type="Area" parent="CameraRoot/PivotH"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95161, -3.4953 )
