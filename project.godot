@@ -10,11 +10,17 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "KinematicBody",
+"class": "Npc",
+"language": "GDScript",
+"path": "res://Assets/Placeholders/TestTarget.gd"
+}, {
+"base": "KinematicBody",
 "class": "Player",
 "language": "GDScript",
 "path": "res://Player/Player.gd"
 } ]
 _global_script_class_icons={
+"Npc": "",
 "Player": ""
 }
 

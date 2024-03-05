@@ -12,13 +12,14 @@ onready var camrot_v = 0
 
 var pivot_h
 var pivot_v
+var camera
 
 # Variables for motion
 export var walk_speed = 5
 export var sprint_speed = 10
 export var angular_acceleration = 10
 export var acceleration = 6
-export var model_path:NodePath
+export var model_path : NodePath
 
 var direction = Vector3.FORWARD
 var gravity = 9.8
@@ -27,10 +28,13 @@ var velocity = Vector3.ZERO
 var model
 
 # Variables for FacialProfiling
-export var target_material:ShaderMaterial
+export var target_outline_thickness = 0.01
+export var target_outline_color = Color(1,0,0,1)
 
 var subjects_in_range = []
 var profiling_target
+
+onready var profiling_marker = $HUD/reticle
 
 func _ready():
 	model = get_node(model_path)
@@ -40,6 +44,7 @@ func _ready():
 	$CameraRoot/PivotH/PivotV/PlayerCamera.add_exception(self)
 	pivot_h = get_node("CameraRoot/PivotH")
 	pivot_v = get_node("CameraRoot/PivotH/PivotV")
+	camera = get_node("CameraRoot/PivotH/PivotV/PlayerCamera")
 	
 #	Set default animation DELETE THIS WHEN CONFIGURING ACTUAL ANIMATION TREE
 	$"S300 test export/Armature/AnimationPlayer".get_animation("Idle").loop = true
@@ -83,7 +88,12 @@ func _physics_process(delta):
 	if subjects_in_range.size() > 0:
 		profiling_target = get_closest_subject(model.global_translation, subjects_in_range)
 #		Change this line if targets' node structure changes:
-		profiling_target.get_parent().set_material_overlay(target_material)
+		profiling_target.set_selected(true)
+		var reticle_position = camera.unproject_position(profiling_target.global_translation)
+		profiling_marker.set_global_position(reticle_position)
+		profiling_marker.visible = true
+	else:
+		profiling_marker.visible = false
 
 # Selects the subject closest to player if multiple subjects are in range:
 func get_closest_subject(origin:Vector3, group:Array):
@@ -95,13 +105,13 @@ func get_closest_subject(origin:Vector3, group:Array):
 			closest = i
 			min_dist = distance
 #			Change this line if targets' node structure changes:
-			i.get_parent().set_material_overlay(null)
+#			i.get_parent().set_material_overlay(null)
+			i.set_selected(false)
 	return closest
 
 func _on_AimingArea_body_entered(body):
 	subjects_in_range.append(body)
-	print(body)
 
 func _on_AimingArea_body_exited(body):
 	subjects_in_range.erase(body)
-	body.get_parent().set_material_overlay(null)
+	body.set_selected(false)

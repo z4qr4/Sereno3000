@@ -41,6 +41,30 @@ collision_mask = 2
 [node name="CollisionShape" type="CollisionShape" parent="CameraRoot/PivotH/AimingArea"]
 shape = SubResource( 2 )
 
+[node name="HUD" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="reticle" type="Control" parent="HUD"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="reticle corner" type="Polygon2D" parent="HUD/reticle"]
+polygon = PoolVector2Array( -24, -64, -64, -64, -64, -24, -56, -24, -56, -56, -24, -56 )
+
+[node name="reticle corner2" type="Polygon2D" parent="HUD/reticle"]
+rotation = 1.5708
+polygon = PoolVector2Array( -24, -64, -64, -64, -64, -24, -56, -24, -56, -56, -24, -56 )
+
+[node name="reticle corner3" type="Polygon2D" parent="HUD/reticle"]
+rotation = 3.14159
+polygon = PoolVector2Array( -24, -64, -64, -64, -64, -24, -56, -24, -56, -56, -24, -56 )
+
+[node name="reticle corner4" type="Polygon2D" parent="HUD/reticle"]
+rotation = -1.5708
+polygon = PoolVector2Array( -24, -64, -64, -64, -64, -24, -56, -24, -56, -56, -24, -56 )
+
 [connection signal="body_entered" from="CameraRoot/PivotH/AimingArea" to="." method="_on_AimingArea_body_entered"]
 [connection signal="body_exited" from="CameraRoot/PivotH/AimingArea" to="." method="_on_AimingArea_body_exited"]
 
