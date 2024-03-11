@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Asset Production/Blends/S300 test export.escn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://Player/TargetDetection.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.627775
@@ -10,7 +11,7 @@ height = 0.7
 [sub_resource type="ConvexPolygonShape" id=2]
 points = PoolVector3Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 10, 20, 2, -10, 20, -2, 10, 20, -2, -10, 20 )
 
-[node name="S3000" type="KinematicBody"]
+[node name="Player" type="KinematicBody"]
 script = ExtResource( 2 )
 model_path = NodePath("S300 test export")
 
@@ -37,35 +38,50 @@ process_mode = 1
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95161, -3.4953 )
 collision_layer = 2
 collision_mask = 2
+script = ExtResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="CameraRoot/PivotH/AimingArea"]
 shape = SubResource( 2 )
 
-[node name="HUD" type="Control" parent="."]
+[node name="GUI" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="reticle" type="Control" parent="HUD"]
+[node name="reticle" type="Control" parent="GUI"]
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="reticle corner" type="Polygon2D" parent="HUD/reticle"]
+[node name="Node2D" type="Node2D" parent="GUI/reticle"]
+scale = Vector2( 0.5, 0.5 )
+
+[node name="reticle corner" type="Polygon2D" parent="GUI/reticle/Node2D"]
 polygon = PoolVector2Array( -24, -64, -64, -64, -64, -24, -56, -24, -56, -56, -24, -56 )
 
-[node name="reticle corner2" type="Polygon2D" parent="HUD/reticle"]
+[node name="reticle corner2" type="Polygon2D" parent="GUI/reticle/Node2D"]
 rotation = 1.5708
 polygon = PoolVector2Array( -24, -64, -64, -64, -64, -24, -56, -24, -56, -56, -24, -56 )
 
-[node name="reticle corner3" type="Polygon2D" parent="HUD/reticle"]
+[node name="reticle corner3" type="Polygon2D" parent="GUI/reticle/Node2D"]
 rotation = 3.14159
 polygon = PoolVector2Array( -24, -64, -64, -64, -64, -24, -56, -24, -56, -56, -24, -56 )
 
-[node name="reticle corner4" type="Polygon2D" parent="HUD/reticle"]
+[node name="reticle corner4" type="Polygon2D" parent="GUI/reticle/Node2D"]
 rotation = -1.5708
 polygon = PoolVector2Array( -24, -64, -64, -64, -64, -24, -56, -24, -56, -56, -24, -56 )
 
-[connection signal="body_entered" from="CameraRoot/PivotH/AimingArea" to="." method="_on_AimingArea_body_entered"]
-[connection signal="body_exited" from="CameraRoot/PivotH/AimingArea" to="." method="_on_AimingArea_body_exited"]
+[node name="HUD" type="MarginContainer" parent="GUI"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="BaseStats" type="VBoxContainer" parent="GUI/HUD"]
+margin_right = 20.0
+margin_bottom = 20.0
+
+[connection signal="body_entered" from="CameraRoot/PivotH/AimingArea" to="CameraRoot/PivotH/AimingArea" method="_on_body_entered"]
+[connection signal="body_exited" from="CameraRoot/PivotH/AimingArea" to="CameraRoot/PivotH/AimingArea" method="_on_body_exited"]
+[connection signal="target_selected" from="CameraRoot/PivotH/AimingArea" to="." method="_on_AimingArea_target_selected"]
 
 [editable path="S300 test export"]

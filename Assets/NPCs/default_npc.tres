@@ -1,0 +1,22 @@
+[gd_resource type="Resource" load_steps=7 format=2]
+
+[ext_resource path="res://Assets/NPCs/NPC_Blueprint.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Placeholders/Humans/TestHuman_eyes.tres" type="ArrayMesh" id=2]
+[ext_resource path="res://Assets/Placeholders/Humans/TestHuman_clothes.tres" type="ArrayMesh" id=3]
+[ext_resource path="res://Assets/Placeholders/Humans/TestHuman_shoes.tres" type="ArrayMesh" id=4]
+[ext_resource path="res://Assets/Placeholders/Humans/TestHuman_hair.tres" type="ArrayMesh" id=5]
+[ext_resource path="res://Assets/Placeholders/Humans/TestHuman_skin.tres" type="ArrayMesh" id=6]
+
+[resource]
+script = ExtResource( 1 )
+base_stats = {
+"economy": 0.5,
+"name": "Juan Pérez",
+"race": 0.5,
+"social": 0.5
+}
+eyes_mesh = ExtResource( 2 )
+skin_mesh = ExtResource( 6 )
+hair_mesh = ExtResource( 5 )
+clothes_mesh = ExtResource( 3 )
+shoes_mesh = ExtResource( 4 )

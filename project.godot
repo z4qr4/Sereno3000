@@ -10,9 +10,19 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "KinematicBody",
-"class": "Npc",
+"class": "HumanNPC",
 "language": "GDScript",
-"path": "res://Assets/Placeholders/TestTarget.gd"
+"path": "res://Assets/NPCs/HumanNPC.gd"
+}, {
+"base": "Resource",
+"class": "NpcBlueprint",
+"language": "GDScript",
+"path": "res://Assets/NPCs/NPC_Blueprint.gd"
+}, {
+"base": "Spatial",
+"class": "NpcSpawn",
+"language": "GDScript",
+"path": "res://Assets/NPCs/NpcSpawn.gd"
 }, {
 "base": "KinematicBody",
 "class": "Player",
@@ -20,7 +30,9 @@ _global_script_classes=[ {
 "path": "res://Player/Player.gd"
 } ]
 _global_script_class_icons={
-"Npc": "",
+"HumanNPC": "",
+"NpcBlueprint": "",
+"NpcSpawn": "",
 "Player": ""
 }
 

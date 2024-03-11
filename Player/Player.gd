@@ -34,7 +34,7 @@ export var target_outline_color = Color(1,0,0,1)
 var subjects_in_range = []
 var profiling_target
 
-onready var profiling_marker = $HUD/reticle
+onready var profiling_marker = $GUI/reticle
 
 func _ready():
 	model = get_node(model_path)
@@ -85,33 +85,22 @@ func _physics_process(delta):
 		vertical_velocity = 0
 	
 #	Target the closest subject in range:
-	if subjects_in_range.size() > 0:
-		profiling_target = get_closest_subject(model.global_translation, subjects_in_range)
-#		Change this line if targets' node structure changes:
-		profiling_target.set_selected(true)
-		var reticle_position = camera.unproject_position(profiling_target.global_translation)
+	if profiling_target != null:
+		var reticle_position = camera.unproject_position(profiling_target.get_node("CollisionShape").global_translation)
 		profiling_marker.set_global_position(reticle_position)
-		profiling_marker.visible = true
-	else:
+		
+
+
+func _on_AimingArea_target_selected(target):
+	if target == null:
+		print("No target")
+		profiling_target = null
 		profiling_marker.visible = false
-
-# Selects the subject closest to player if multiple subjects are in range:
-func get_closest_subject(origin:Vector3, group:Array):
-	var closest = null
-	var min_dist = 0.0
-	for i in group:
-		var distance = origin.distance_to(i.global_translation)
-		if closest == null or distance < min_dist:
-			closest = i
-			min_dist = distance
-#			Change this line if targets' node structure changes:
-#			i.get_parent().set_material_overlay(null)
-			i.set_selected(false)
-	return closest
-
-func _on_AimingArea_body_entered(body):
-	subjects_in_range.append(body)
-
-func _on_AimingArea_body_exited(body):
-	subjects_in_range.erase(body)
-	body.set_selected(false)
+		profiling_marker.set_position(Vector2(0,0))
+	else:
+		if profiling_target != null: profiling_target.set_selected(false)
+		profiling_target = target
+		target.set_selected(true)
+		for i in target.npc_blueprint.base_stats:
+			print(i + ": " + str(target.npc_blueprint.base_stats[i]))
+		profiling_marker.visible = true
