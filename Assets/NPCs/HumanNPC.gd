@@ -26,11 +26,14 @@ func set_selected(value: bool, color_override: Color = target_color, outline_ove
 				if i is MeshInstance:
 					i.set_material_overlay(null)
 
-func initialize(blueprint: Resource = load("res://Assets/NPCs/default_npc.tres")):
+func initialize(blueprint: Resource = load("res://Asset Production/Placeholders/NPCs/AverageWhiteMale.tres")):
 	npc_blueprint = blueprint
-	$Skeleton/eyes.mesh = npc_blueprint.eyes_mesh
-	$Skeleton/skin.mesh = npc_blueprint.skin_mesh
-	$Skeleton/hair.mesh = npc_blueprint.hair_mesh
-	$Skeleton/clothes.mesh = npc_blueprint.clothes_mesh
-	$Skeleton/shoes.mesh = npc_blueprint.shoes_mesh
+	var npc_skeleton = load(blueprint.skeleton)
+	var skeleton = npc_skeleton.instance()
+	for i in blueprint.mesh_components:
+		var mesh = MeshInstance.new()
+		mesh.mesh = (i)
+		skeleton.add_child(mesh)
+	skeleton.name = "Skeleton"
+	add_child(skeleton)
 

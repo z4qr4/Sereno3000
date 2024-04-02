@@ -10,9 +10,8 @@ export(Dictionary) var base_stats = {
 }
 
 # Mesh construction
-export(Mesh) var eyes_mesh
-export(Mesh) var skin_mesh
-export(Mesh) var hair_mesh
-export(Mesh) var clothes_mesh
-export(Mesh) var shoes_mesh
+export(String) var skeleton
+export(Array) var mesh_components = [
+	
+]
 

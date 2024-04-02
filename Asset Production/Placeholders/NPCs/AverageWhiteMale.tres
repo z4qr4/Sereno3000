@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=9 format=2]
+
+[ext_resource path="res://Assets/NPCs/NPC_Blueprint.gd" type="Script" id=1]
+[ext_resource path="res://Asset Production/Placeholders/meshes/AWM_eyebrows01.mesh" type="ArrayMesh" id=2]
+[ext_resource path="res://Asset Production/Placeholders/meshes/eyes.mesh" type="ArrayMesh" id=3]
+[ext_resource path="res://Asset Production/Placeholders/meshes/AWM_hairstyle01.mesh" type="ArrayMesh" id=4]
+[ext_resource path="res://Asset Production/Placeholders/meshes/AWM_jeans01.mesh" type="ArrayMesh" id=5]
+[ext_resource path="res://Asset Production/Placeholders/meshes/AWM_puffer_jacket.mesh" type="ArrayMesh" id=6]
+[ext_resource path="res://Asset Production/Placeholders/meshes/AWM_skin.mesh" type="ArrayMesh" id=7]
+[ext_resource path="res://Asset Production/Placeholders/meshes/AWM_kicks01.mesh" type="ArrayMesh" id=8]
+
+[resource]
+script = ExtResource( 1 )
+base_stats = {
+"economy": 0.5,
+"name": "",
+"race": 0.5,
+"social": 0.5
+}
+skeleton = "res://Asset Production/Placeholders/AWM_skeleton.tscn"
+mesh_components = [ ExtResource( 3 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 8 ) ]

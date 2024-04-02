@@ -1,0 +1,28 @@
+# Written by MakeHuman UNKNOWN:UNKNOWN
+version v1.2.0
+name genericWhiteMale
+camera 358.5 32.5 0.053044329077553826 0.1462632085072322 0.13399435216020267 1.1624999999999992
+modifier breast/BreastSize 0.500000
+modifier breast/BreastFirmness 0.500000
+modifier macrodetails/Gender 1.000000
+modifier macrodetails/Age 0.543000
+modifier macrodetails/African 0.208000
+modifier macrodetails/Asian 0.000000
+modifier macrodetails/Caucasian 0.792000
+modifier macrodetails-universal/Muscle 0.503000
+modifier macrodetails-universal/Weight 0.358000
+modifier macrodetails-height/Height 0.439000
+modifier macrodetails-proportions/BodyProportions 0.295000
+hair hairstyle01 cc9ad10d-c4fd-410c-a51a-69c0bd1e9847
+skeleton game_engine.mhskel
+eyebrows eyebrow008 79ea307f-a942-40dd-bf50-bbaa41f02034
+eyes Low-Poly 1cc97a30-85a1-42e6-a9f7-b3e753732baa
+clothes TennisShoes 6d72ef6a-7827-49fe-8af4-26824e4bdd8c
+clothes jeans01 e57e120d-d638-4a27-8d74-cbc0132e4595
+clothes Puffer Jacket f677d728-0a88-45dc-95a1-755a0cb6f4dd
+clothesHideFaces True
+skinMaterial skins/middleage_caucasian_male/middleage_caucasian_male.mhmat
+material hairstyle01 cc9ad10d-c4fd-410c-a51a-69c0bd1e9847 hairstyle01.mhmat
+material Low-Poly 1cc97a30-85a1-42e6-a9f7-b3e753732baa eyes/materials/brown.mhmat
+material eyebrow008 79ea307f-a942-40dd-bf50-bbaa41f02034 eyebrow008.mhmat
+subdivide False
