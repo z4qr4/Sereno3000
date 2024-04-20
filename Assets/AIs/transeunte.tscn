@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/AIs/transeunte.gd" type="Script" id=1]
+
+[sub_resource type="CapsuleShape" id=1]
+
+[sub_resource type="CapsuleMesh" id=2]
+
+[sub_resource type="CubeMesh" id=3]
+
+[node name="Transeunte" type="KinematicBody"]
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.50814, 0 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="CollisionShape"]
+mesh = SubResource( 2 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="CollisionShape"]
+transform = Transform( 0.748001, 0, 0, 0, 0.408385, -7.96604e-09, 0, -7.96603e-09, 0.226143, 0, -0.587919, -0.526781 )
+mesh = SubResource( 3 )
+
+[node name="NavigationAgent" type="NavigationAgent" parent="."]

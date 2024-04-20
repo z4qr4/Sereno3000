@@ -9,10 +9,75 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Leaf",
+"class": "ActionLeaf",
+"language": "GDScript",
+"path": "res://TestLevel/addons/beehave/nodes/leaves/action.gd"
+}, {
+"base": "Decorator",
+"class": "AlwaysFailDecorator",
+"language": "GDScript",
+"path": "res://TestLevel/addons/beehave/nodes/decorators/failer.gd"
+}, {
+"base": "Decorator",
+"class": "AlwaysSucceedDecorator",
+"language": "GDScript",
+"path": "res://TestLevel/addons/beehave/nodes/decorators/succeeder.gd"
+}, {
+"base": "BeehaveTree",
+"class": "BeehaveNode",
+"language": "GDScript",
+"path": "res://TestLevel/addons/beehave/nodes/beehave_node.gd"
+}, {
+"base": "BeehaveTree",
+"class": "BeehaveRoot",
+"language": "GDScript",
+"path": "res://TestLevel/addons/beehave/nodes/beehave_root.gd"
+}, {
+"base": "Node",
+"class": "BeehaveTree",
+"language": "GDScript",
+"path": "res://TestLevel/addons/beehave/nodes/beehave_tree.gd"
+}, {
+"base": "Reference",
+"class": "Blackboard",
+"language": "GDScript",
+"path": "res://TestLevel/addons/beehave/blackboard.gd"
+}, {
+"base": "BeehaveNode",
+"class": "Composite",
+"language": "GDScript",
+"path": "res://TestLevel/addons/beehave/nodes/composites/composite.gd"
+}, {
+"base": "Leaf",
+"class": "ConditionLeaf",
+"language": "GDScript",
+"path": "res://TestLevel/addons/beehave/nodes/leaves/condition.gd"
+}, {
+"base": "BeehaveNode",
+"class": "Decorator",
+"language": "GDScript",
+"path": "res://TestLevel/addons/beehave/nodes/decorators/decorator.gd"
+}, {
 "base": "KinematicBody",
 "class": "HumanNPC",
 "language": "GDScript",
 "path": "res://Assets/NPCs/HumanNPC.gd"
+}, {
+"base": "Decorator",
+"class": "InverterDecorator",
+"language": "GDScript",
+"path": "res://TestLevel/addons/beehave/nodes/decorators/inverter.gd"
+}, {
+"base": "BeehaveNode",
+"class": "Leaf",
+"language": "GDScript",
+"path": "res://TestLevel/addons/beehave/nodes/leaves/leaf.gd"
+}, {
+"base": "Decorator",
+"class": "LimiterDecorator",
+"language": "GDScript",
+"path": "res://TestLevel/addons/beehave/nodes/decorators/limiter.gd"
 }, {
 "base": "Resource",
 "class": "NpcBlueprint",
@@ -28,12 +93,49 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://Player/Player.gd"
+}, {
+"base": "Composite",
+"class": "SelectorComposite",
+"language": "GDScript",
+"path": "res://TestLevel/addons/beehave/nodes/composites/selector.gd"
+}, {
+"base": "Composite",
+"class": "SelectorStarComposite",
+"language": "GDScript",
+"path": "res://TestLevel/addons/beehave/nodes/composites/selector_star.gd"
+}, {
+"base": "Composite",
+"class": "SequenceComposite",
+"language": "GDScript",
+"path": "res://TestLevel/addons/beehave/nodes/composites/sequence.gd"
+}, {
+"base": "Composite",
+"class": "SequenceStarComposite",
+"language": "GDScript",
+"path": "res://TestLevel/addons/beehave/nodes/composites/sequence_star.gd"
 } ]
 _global_script_class_icons={
+"ActionLeaf": "res://TestLevel/addons/beehave/icons/action.svg",
+"AlwaysFailDecorator": "res://TestLevel/addons/beehave/icons/fail.svg",
+"AlwaysSucceedDecorator": "res://TestLevel/addons/beehave/icons/succeed.svg",
+"BeehaveNode": "res://TestLevel/addons/beehave/icons/action.svg",
+"BeehaveRoot": "res://TestLevel/addons/beehave/icons/tree.svg",
+"BeehaveTree": "res://TestLevel/addons/beehave/icons/icon.png",
+"Blackboard": "",
+"Composite": "res://TestLevel/addons/beehave/icons/category_composite.svg",
+"ConditionLeaf": "res://TestLevel/addons/beehave/icons/condition.svg",
+"Decorator": "res://TestLevel/addons/beehave/icons/category_decorator.svg",
 "HumanNPC": "",
+"InverterDecorator": "res://TestLevel/addons/beehave/icons/inverter.svg",
+"Leaf": "res://TestLevel/addons/beehave/icons/action.svg",
+"LimiterDecorator": "res://TestLevel/addons/beehave/icons/limiter.svg",
 "NpcBlueprint": "",
 "NpcSpawn": "",
-"Player": ""
+"Player": "",
+"SelectorComposite": "res://TestLevel/addons/beehave/icons/selector.svg",
+"SelectorStarComposite": "res://TestLevel/addons/beehave/icons/selector_star.svg",
+"SequenceComposite": "res://TestLevel/addons/beehave/icons/sequencer.svg",
+"SequenceStarComposite": "res://TestLevel/addons/beehave/icons/sequencer_star.svg"
 }
 
 [application]
@@ -81,5 +183,8 @@ common/enable_pause_aware_picking=true
 [rendering]
 
 quality/directional_shadow/size=2048
+gles3/shaders/shader_compilation_mode=2
+gles3/shaders/shader_compilation_mode.mobile=1
+gles3/shaders/shader_compilation_mode.web=1
 quality/filters/msaa=1
 environment/default_environment="res://default_env.tres"
