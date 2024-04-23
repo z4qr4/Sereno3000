@@ -47,8 +47,8 @@ func _ready():
 	camera = get_node("CameraRoot/PivotH/PivotV/PlayerCamera")
 	
 #	Set default animation DELETE THIS WHEN CONFIGURING ACTUAL ANIMATION TREE
-	$"S300 test export/Armature/AnimationPlayer".get_animation("Idle").loop = true
-	$"S300 test export/Armature/AnimationPlayer".play("Idle")
+	$"S300_V3/Armature/AnimationPlayer".get_animation("Idle").loop = true
+	$"S300_V3/Armature/AnimationPlayer".play("Idle")
 
 func _input(event):
 #	Get mouse motion for camera control:

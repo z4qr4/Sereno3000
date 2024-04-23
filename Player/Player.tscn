@@ -1,25 +1,24 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Asset Production/Blends/S300 test export.escn" type="PackedScene" id=1]
+[ext_resource path="res://Asset Production/Blends/S300_V3.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://Player/TargetDetection.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
-radius = 0.627775
-height = 0.7
+radius = 0.370789
+height = 0.296261
 
 [sub_resource type="ConvexPolygonShape" id=2]
 points = PoolVector3Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 10, 20, 2, -10, 20, -2, 10, 20, -2, -10, 20 )
 
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 2 )
-model_path = NodePath("S300 test export")
+model_path = NodePath("S300_V3")
 
-[node name="S300 test export" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.273452, 0 )
+[node name="S300_V3" parent="." instance=ExtResource( 1 )]
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.515959, 0 )
 shape = SubResource( 1 )
 
 [node name="CameraRoot" type="Spatial" parent="."]
@@ -27,7 +26,7 @@ shape = SubResource( 1 )
 [node name="PivotH" type="Spatial" parent="CameraRoot"]
 
 [node name="PivotV" type="Spatial" parent="CameraRoot/PivotH"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95363, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.18517, 0 )
 
 [node name="PlayerCamera" type="ClippedCamera" parent="CameraRoot/PivotH/PivotV"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -3.508 )
@@ -35,7 +34,7 @@ far = 500.0
 process_mode = 1
 
 [node name="AimingArea" type="Area" parent="CameraRoot/PivotH"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95161, -3.4953 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.18315, -3.4953 )
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 3 )
@@ -84,4 +83,4 @@ margin_bottom = 20.0
 [connection signal="body_exited" from="CameraRoot/PivotH/AimingArea" to="CameraRoot/PivotH/AimingArea" method="_on_body_exited"]
 [connection signal="target_selected" from="CameraRoot/PivotH/AimingArea" to="." method="_on_AimingArea_target_selected"]
 
-[editable path="S300 test export"]
+[editable path="S300_V3"]
