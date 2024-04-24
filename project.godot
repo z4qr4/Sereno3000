@@ -59,6 +59,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://TestLevel/addons/beehave/nodes/decorators/decorator.gd"
 }, {
+"base": "Node",
+"class": "DistanceOccluder",
+"language": "GDScript",
+"path": "res://Assets/Utilities/distance_occluder.gd"
+}, {
 "base": "KinematicBody",
 "class": "HumanNPC",
 "language": "GDScript",
@@ -125,6 +130,7 @@ _global_script_class_icons={
 "Composite": "res://TestLevel/addons/beehave/icons/category_composite.svg",
 "ConditionLeaf": "res://TestLevel/addons/beehave/icons/condition.svg",
 "Decorator": "res://TestLevel/addons/beehave/icons/category_decorator.svg",
+"DistanceOccluder": "",
 "HumanNPC": "",
 "InverterDecorator": "res://TestLevel/addons/beehave/icons/inverter.svg",
 "Leaf": "res://TestLevel/addons/beehave/icons/action.svg",

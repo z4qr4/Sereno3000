@@ -82,5 +82,3 @@ margin_bottom = 20.0
 [connection signal="body_entered" from="CameraRoot/PivotH/AimingArea" to="CameraRoot/PivotH/AimingArea" method="_on_body_entered"]
 [connection signal="body_exited" from="CameraRoot/PivotH/AimingArea" to="CameraRoot/PivotH/AimingArea" method="_on_body_exited"]
 [connection signal="target_selected" from="CameraRoot/PivotH/AimingArea" to="." method="_on_AimingArea_target_selected"]
-
-[editable path="S300_V3"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Asset Production/Placeholders/animations/AWM_sit_idle.anim" type="Animation" id=1]
 [ext_resource path="res://Asset Production/Placeholders/animations/AWM_walk_cycle.anim" type="Animation" id=2]
@@ -8,11 +8,15 @@
 [sub_resource type="AnimationNodeAnimation" id=1]
 animation = "idle"
 
-[sub_resource type="AnimationNodeBlendTree" id=2]
-graph_offset = Vector2( -158.39, 69.6386 )
-nodes/IdleCycle/node = SubResource( 1 )
-nodes/IdleCycle/position = Vector2( 0, 120 )
-node_connections = [ "output", 0, "IdleCycle" ]
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "walk_cycle"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id=3]
+blend_point_0/node = SubResource( 1 )
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource( 2 )
+blend_point_1/pos = 1.0
+min_space = 0.0
 
 [node name="average_white_male" type="Skeleton"]
 bones/0/name = "Root"
@@ -287,7 +291,8 @@ anims/sit_down = ExtResource( 3 )
 anims/sit_idle = ExtResource( 1 )
 anims/walk_cycle = ExtResource( 2 )
 
-[node name="AnimationTree" type="AnimationTree" parent="AnimationPlayer"]
-tree_root = SubResource( 2 )
-anim_player = NodePath("..")
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 3 )
+anim_player = NodePath("../AnimationPlayer")
 active = true
+parameters/blend_position = 0

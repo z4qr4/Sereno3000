@@ -93,14 +93,19 @@ func _physics_process(delta):
 
 func _on_AimingArea_target_selected(target):
 	if target == null:
-		print("No target")
 		profiling_target = null
 		profiling_marker.visible = false
 		profiling_marker.set_position(Vector2(0,0))
+		for i in $GUI/HUD/BaseStats.get_children():
+			i.queue_free()
 	else:
 		if profiling_target != null: profiling_target.set_selected(false)
+		for i in $GUI/HUD/BaseStats.get_children():
+			i.queue_free()
 		profiling_target = target
 		target.set_selected(true)
 		for i in target.npc_blueprint.base_stats:
-			print(i + ": " + str(target.npc_blueprint.base_stats[i]))
+			var stat_label = Label.new()
+			stat_label.text = i + str(target.npc_blueprint.base_stats[i])
+			$GUI/HUD/BaseStats.add_child(stat_label)
 		profiling_marker.visible = true
