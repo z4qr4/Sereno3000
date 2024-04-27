@@ -12,6 +12,8 @@ onready var camrot_v = 0
 
 var pivot_h
 var pivot_v
+export var pivot_x : NodePath
+export var pivot_y : NodePath
 var camera
 
 # Variables for motion
@@ -40,7 +42,7 @@ func _ready():
 	model = get_node(model_path)
 	
 #	Initialize camera control:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+#	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$CameraRoot/PivotH/PivotV/PlayerCamera.add_exception(self)
 	pivot_h = get_node("CameraRoot/PivotH")
 	pivot_v = get_node("CameraRoot/PivotH/PivotV")
@@ -58,9 +60,9 @@ func _input(event):
 
 func _physics_process(delta):
 #	Move the camera rig with mouse motion values:
-	camrot_v = clamp(camrot_v, camrot_v_min, camrot_v_max)
-	pivot_h.rotation_degrees.y = lerp(pivot_h.rotation_degrees.y, camrot_h, delta * orbit_acceleration)
-	pivot_v.rotation_degrees.x = lerp(pivot_v.rotation_degrees.x, camrot_v, delta * orbit_acceleration)
+#	camrot_v = clamp(camrot_v, camrot_v_min, camrot_v_max)
+#	pivot_h.rotation_degrees.y = lerp(pivot_h.rotation_degrees.y, camrot_h, delta * orbit_acceleration)
+#	pivot_v.rotation_degrees.x = lerp(pivot_v.rotation_degrees.x, camrot_v, delta * orbit_acceleration)
 	
 #	Move the character with input, might be replaced with more elegant movement:
 	var movement_speed = 0

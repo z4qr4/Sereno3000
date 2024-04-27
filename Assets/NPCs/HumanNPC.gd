@@ -60,5 +60,5 @@ func walk_to():
 		move_and_slide(velocity)
 		return velocity.length()
 	else:
-		queue_free()
+		return 0
 

@@ -74,6 +74,31 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://TestLevel/addons/beehave/nodes/decorators/inverter.gd"
 }, {
+"base": "CPUParticles",
+"class": "LODCPUParticles",
+"language": "GDScript",
+"path": "res://addons/lod/lod_cpu_particles.gd"
+}, {
+"base": "OmniLight",
+"class": "LODOmniLight",
+"language": "GDScript",
+"path": "res://addons/lod/lod_omni_light.gd"
+}, {
+"base": "Particles",
+"class": "LODParticles",
+"language": "GDScript",
+"path": "res://addons/lod/lod_particles.gd"
+}, {
+"base": "Spatial",
+"class": "LODSpatial",
+"language": "GDScript",
+"path": "res://addons/lod/lod_spatial.gd"
+}, {
+"base": "SpotLight",
+"class": "LODSpotLight",
+"language": "GDScript",
+"path": "res://addons/lod/lod_spot_light.gd"
+}, {
 "base": "BeehaveNode",
 "class": "Leaf",
 "language": "GDScript",
@@ -118,6 +143,16 @@ _global_script_classes=[ {
 "class": "SequenceStarComposite",
 "language": "GDScript",
 "path": "res://TestLevel/addons/beehave/nodes/composites/sequence_star.gd"
+}, {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://Assets/Utilities/StateMachine/State.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://Assets/Utilities/StateMachine/StateMachine.gd"
 } ]
 _global_script_class_icons={
 "ActionLeaf": "res://TestLevel/addons/beehave/icons/action.svg",
@@ -133,6 +168,11 @@ _global_script_class_icons={
 "DistanceOccluder": "",
 "HumanNPC": "",
 "InverterDecorator": "res://TestLevel/addons/beehave/icons/inverter.svg",
+"LODCPUParticles": "res://addons/lod/lod_cpu_particles.svg",
+"LODOmniLight": "res://addons/lod/lod_omni_light.svg",
+"LODParticles": "res://addons/lod/lod_particles.svg",
+"LODSpatial": "res://addons/lod/lod_spatial.svg",
+"LODSpotLight": "res://addons/lod/lod_spot_light.svg",
 "Leaf": "res://TestLevel/addons/beehave/icons/action.svg",
 "LimiterDecorator": "res://TestLevel/addons/beehave/icons/limiter.svg",
 "NpcBlueprint": "",
@@ -141,7 +181,9 @@ _global_script_class_icons={
 "SelectorComposite": "res://TestLevel/addons/beehave/icons/selector.svg",
 "SelectorStarComposite": "res://TestLevel/addons/beehave/icons/selector_star.svg",
 "SequenceComposite": "res://TestLevel/addons/beehave/icons/sequencer.svg",
-"SequenceStarComposite": "res://TestLevel/addons/beehave/icons/sequencer_star.svg"
+"SequenceStarComposite": "res://TestLevel/addons/beehave/icons/sequencer_star.svg",
+"State": "",
+"StateMachine": ""
 }
 
 [application]
@@ -149,6 +191,10 @@ _global_script_class_icons={
 config/name="Sereno3000"
 run/main_scene="res://TestLevel/Test01.tscn"
 config/icon="res://icon.png"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/lod/plugin.cfg" )
 
 [gui]
 
@@ -189,8 +235,6 @@ common/enable_pause_aware_picking=true
 [rendering]
 
 quality/directional_shadow/size=2048
-gles3/shaders/shader_compilation_mode=2
-gles3/shaders/shader_compilation_mode.mobile=1
-gles3/shaders/shader_compilation_mode.web=1
+gles3/shaders/shader_compilation_mode=1
 quality/filters/msaa=1
 environment/default_environment="res://default_env.tres"
