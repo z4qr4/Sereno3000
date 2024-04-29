@@ -7,8 +7,8 @@
 [ext_resource path="res://Assets/Utilities/StateMachine/StateMachine.gd" type="Script" id=5]
 
 [sub_resource type="CapsuleShape" id=1]
-radius = 0.370789
-height = 0.296261
+radius = 0.35
+height = 0.7
 
 [sub_resource type="ConvexPolygonShape" id=2]
 points = PoolVector3Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 10, 20, 2, -10, 20, -2, 10, 20, -2, -10, 20 )
@@ -20,9 +20,10 @@ pivot_y = NodePath("CameraRoot/PivotH")
 model_path = NodePath("S300_V3")
 
 [node name="S300_V3" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.323796, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.515959, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.703012, 0 )
 shape = SubResource( 1 )
 
 [node name="CameraRoot" type="Spatial" parent="."]

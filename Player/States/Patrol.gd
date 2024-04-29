@@ -31,7 +31,7 @@ var subject_in_range
 var profiling_target
 
 
-çfunc enter():
+func enter():
 	print("Patrol Mode")
 	player = owner
 	pivot_x = player.get_node(player.pivot_x)
@@ -48,6 +48,9 @@ func handle_input(_event):
 	if _event is InputEventMouseMotion:
 		camrot_x -= _event.relative.y
 		camrot_y -= _event.relative.x
+	if InputMap.event_is_action(_event, "ui_accept"):
+		if player.profiling_target != null:
+			player.profiling_target.state_machine.transition_to("Idle")
 
 func update(_delta:float):
 	camrot_x = clamp(camrot_x, camrot_x_min, camrot_x_max)
