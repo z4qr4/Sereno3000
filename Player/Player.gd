@@ -23,7 +23,7 @@ export var angular_acceleration = 10
 export var acceleration = 6
 export var model_path : NodePath
 
-var direction = Vector3.FORWARD
+#var direction = Vector3.FORWARD
 var gravity = 9.8
 var vertical_velocity = 0
 var velocity = Vector3.ZERO
@@ -57,8 +57,6 @@ func _physics_process(delta):
 	if profiling_target != null:
 		var reticle_position = camera.unproject_position(profiling_target.get_node("CollisionShape").global_translation)
 		profiling_marker.set_global_position(reticle_position)
-		
-
 
 func _on_AimingArea_target_selected(target):
 	if target == null:
@@ -78,3 +76,15 @@ func _on_AimingArea_target_selected(target):
 			stat_label.text = i + str(target.npc_blueprint.base_stats[i])
 			$GUI/HUD/BaseStats.add_child(stat_label)
 		profiling_marker.visible = true
+
+func compute_movement(direction : Vector3, speed : float):
+	var delta = get_process_delta_time()
+	model.rotation.y = lerp_angle(model.rotation.y, atan2(direction.x, direction.z), delta * angular_acceleration)
+	velocity = lerp(velocity, direction * speed, delta * acceleration)
+	
+	move_and_slide(velocity + vertical_velocity * Vector3.DOWN, Vector3.UP)
+	
+	if !is_on_floor():
+		vertical_velocity += delta * gravity
+	else:
+		vertical_velocity = 0

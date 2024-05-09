@@ -16,6 +16,7 @@ var is_selected = false
 var current_speed
 
 onready var nav_agent = $NavigationAgent
+var computed_velocity = Vector3.ZERO
 
 func _ready():
 	#initialize()
@@ -55,13 +56,18 @@ func walk_to(current_target):
 	var velocity = Vector3.ZERO
 	if current_target != null:
 		nav_agent.set_target_location(current_target.global_transform.origin)
-		velocity = (nav_agent.get_next_location() - global_transform.origin).normalized() * walk_speed
+#		velocity = (nav_agent.get_next_location() - global_transform.origin).normalized() * walk_speed
+		velocity = global_translation.direction_to(nav_agent.get_next_location()) * walk_speed
 		look_at(nav_agent.get_next_location(), Vector3.UP)
+		nav_agent.set_velocity(velocity)
 	if !is_on_floor():
 		velocity.y -= 10
 	if !nav_agent.is_navigation_finished():
-		move_and_slide(velocity)
+		nav_agent.set_velocity(velocity)
+		move_and_slide(computed_velocity)
 		return velocity.length()
 	else:
 		return 0
 
+func _on_NavigationAgent_velocity_computed(safe_velocity):
+	computed_velocity = safe_velocity

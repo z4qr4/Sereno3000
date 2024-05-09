@@ -36,9 +36,6 @@ func enter():
 	player = owner
 	pivot_x = player.get_node(player.pivot_x)
 	pivot_y = player.get_node(player.pivot_y)
-	model = player.model
-	acceleration = player.acceleration
-	angular_acceleration = player.angular_acceleration
 	orbit_acceleration = player.orbit_acceleration
 	walk_speed = player.walk_speed
 	sprint_speed = player.sprint_speed
@@ -51,6 +48,7 @@ func handle_input(_event):
 	if InputMap.event_is_action(_event, "ui_accept"):
 		if player.profiling_target != null:
 			player.profiling_target.state_machine.transition_to("Idle")
+			state_machine.transition_to("Intervene")
 
 func update(_delta:float):
 	camrot_x = clamp(camrot_x, camrot_x_min, camrot_x_max)
@@ -65,20 +63,13 @@ func physics_update(_delta:float):
 		direction = Vector3(Input.get_action_strength("move_l") - Input.get_action_strength("move_r"),
 		0,
 		Input.get_action_strength("move_fw") - Input.get_action_strength("move_bw")).rotated(Vector3.UP, h_rotation).normalized()
-		model.rotation.y = lerp_angle(model.rotation.y, atan2(direction.x, direction.z), _delta * angular_acceleration)
 		
 		if Input.is_action_pressed("sprint"):
 			movement_speed = sprint_speed
 		else:
 			movement_speed = walk_speed
 	
-	velocity = lerp(velocity, direction * movement_speed, _delta * acceleration)
-	player.move_and_slide(velocity + vertical_velocity * Vector3.DOWN, Vector3.UP)
-	
-	if !player.is_on_floor():
-		vertical_velocity += _delta * gravity
-	else:
-		vertical_velocity = 0
+	player.compute_movement(direction, movement_speed)
 
 func exit():
 	pass
