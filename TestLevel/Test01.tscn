@@ -71,11 +71,9 @@ surfaces/0 = {
 [node name="WorldOrigin" type="Spatial"]
 
 [node name="SuperScaling" parent="." instance=ExtResource( 4 )]
-scale_factor = 0.9
+scale_factor = 0.75
 smoothness = 0.0
 enable_on_play = true
-msaa = 1
-shadow_atlas = 1024
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.176982, -0.800645, -0.572403, 0, -0.581584, 0.813487, -0.984214, -0.143972, -0.10293, -7.62939e-06, 42.8085, -2.9006 )

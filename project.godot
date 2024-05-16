@@ -189,7 +189,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Sereno3000"
-run/main_scene="res://TestLevel/Test01.tscn"
+run/main_scene="res://TestLevel/Test02.tscn"
 config/icon="res://icon.png"
 
 [editor_plugins]

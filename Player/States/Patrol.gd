@@ -13,7 +13,7 @@ var camrot_x = 0
 var camrot_y = 0
 var pivot_x
 var pivot_y
-var camrot_x_min = -30
+var camrot_x_min = -15
 var camrot_x_max = 75
 
 #	Movement variables
