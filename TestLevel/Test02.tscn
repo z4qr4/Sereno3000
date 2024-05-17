@@ -6,9 +6,9 @@
 [ext_resource path="res://Assets/Materials/Concrete Floor/gravel_concrete_03_rough_1k.png" type="Texture" id=4]
 [ext_resource path="res://SuperScaling/SuperScaling.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Materials/city01_pano.jpg" type="Texture" id=6]
-[ext_resource path="res://Assets/Materials/SCANLINES_CODE.gdshader" type="Shader" id=7]
+[ext_resource path="res://Assets/Materials/CRT_LOOK.tres" type="Shader" id=7]
 
-[sub_resource type="ShaderMaterial" id=21]
+[sub_resource type="ShaderMaterial" id=12]
 shader = ExtResource( 7 )
 
 [sub_resource type="PanoramaSky" id=10]
@@ -113,13 +113,13 @@ size = Vector2( 500, 500 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-material = SubResource( 21 )
+material = SubResource( 12 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="SuperScaling" parent="." instance=ExtResource( 5 )]
-scale_factor = 0.75
-smoothness = 0.0
+scale_factor = 0.5
+smoothness = 1.0
 enable_on_play = true
 ui_nodes = [ NodePath("../CanvasLayer") ]
 
@@ -142,3 +142,9 @@ shadow_enabled = true
 directional_shadow_mode = 0
 directional_shadow_normal_bias = 2.365
 directional_shadow_max_distance = 20.9
+
+[node name="City01Pano" type="Sprite" parent="."]
+visible = false
+position = Vector2( 736, 344 )
+scale = Vector2( 1.45508, 1.45508 )
+texture = ExtResource( 6 )

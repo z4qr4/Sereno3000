@@ -36,12 +36,12 @@ shape = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.18517, 0 )
 
 [node name="PlayerCamera" type="ClippedCamera" parent="CameraRoot/PivotH/PivotV"]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -3.508 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -2.46927 )
 far = 500.0
 process_mode = 1
 
 [node name="AimingArea" type="Area" parent="CameraRoot/PivotH"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.18315, -3.4953 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.18315, -2.45657 )
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 3 )
